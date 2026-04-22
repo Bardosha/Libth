@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 14:38:13 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/22 16:19:37 by asaunina         ###   ########.fr       */
+/*   Created: 2026/04/22 16:14:34 by asaunina          #+#    #+#             */
+/*   Updated: 2026/04/22 17:50:39 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	bzero(void *s, size_t n)
 {
 	unsigned char	*tmp;
 
 	tmp = (unsigned char *) s;
 	while (n > 0)
 	{
-		*tmp++ = (unsigned char) c;
+		*tmp++ = '\0';
 		n--;
 	}
-	return (s);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char str[] = "Perfect";
+	char	str[] = "Perfect";
 	printf("Org str: %s\n", str);
 
-	ft_memset(str, '7', 3);
-	printf("After fct: %s\n", str);
+	bzero(str, 3);
+	printf("After fct: \n");
+	for (int i = 0; i < 8; i++)
+	{
+		printf("%c", str[i]);
+	}
+	printf("\n");
 	return (0);
 }
 */

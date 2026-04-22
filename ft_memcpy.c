@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 14:38:13 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/22 16:19:37 by asaunina         ###   ########.fr       */
+/*   Created: 2026/04/22 16:21:01 by asaunina          #+#    #+#             */
+/*   Updated: 2026/04/22 18:11:58 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*tmp;
+	unsigned char	*dtmp;
+	unsigned char	*stmp;
 
-	tmp = (unsigned char *) s;
+	stmp = (const unsigned char *) src;
+	dtmp = (unsigned char *) dest;
 	while (n > 0)
 	{
-		*tmp++ = (unsigned char) c;
+		*dtmp++ = *stmp++;
 		n--;
 	}
-	return (s);
+	return (dest);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char str[] = "Perfect";
-	printf("Org str: %s\n", str);
+	char	src[] = "Perfect";
+	char	dest[10];
+	printf("Org str: %s\n", src);
 
-	ft_memset(str, '7', 3);
-	printf("After fct: %s\n", str);
+	memcpy(dest, src, 3);
+	printf("After fct: %s\n", dest); //Per
 	return (0);
 }
 */
