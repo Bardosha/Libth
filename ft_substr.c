@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:53:50 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/30 21:07:48 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/01 22:04:40 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -23,9 +20,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	strl = strlen(s);
+	strl = ft_strlen(s);
 	if (start >= strl)
 	{
+		sub = malloc(sizeof(char));
+		if (!sub)
+			return (NULL);
 		sub[0] = '\0';
 		return (sub);
 	}
@@ -34,30 +34,32 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = malloc(sizeof(char) * (len + 1));
 	if (!sub)
 		return (NULL);
-
 	i = 0;
 	while (i < len)
 	{
-		sub[i] = s[start];
+		sub[i] = s[start + i];
 		i++;
-		start++;
 	}
 	sub[i] = '\0';
 	return (sub);
 }
-
+/*
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 int	main(void)
 {
-	char	s[] = "Bardosha is Lucky";
-	int		start = 12;
-	int		len = 9;
+	char			s[] = "Bardosha is Lucky";
+	unsigned int	start = 12;
+	size_t			len = 9;
 
 	printf("Org str: %s\n", s);
-	printf("After fct: %s\n", ft_substr(s, start, len));
-	printf("%lu\n", strlen(ft_substr(s, start, len)));
+	printf("Substring: %s\n", ft_substr(s, start, len));
+	//printf("%lu\n", strlen(ft_substr(s, start, len)));
 	return (0);
 }
 
 // sub[i] = s[start]; |   sub[i] = s[start + i];    
 // i++;			   	  |   i++;
 // start++;
+*/
