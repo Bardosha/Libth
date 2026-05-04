@@ -1,15 +1,25 @@
-// header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/04 15:24:00 by asaunina          #+#    #+#             */
+/*   Updated: 2026/05/04 18:56:30 by asaunina         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		word;
+	size_t	i;
+	size_t	j;
+	size_t	word;
 	char	**arr;
 	int		start;
-	int		len;
-	int		j;
+	size_t	len;
 
 	i = 0;
 	word = 0;
@@ -19,7 +29,7 @@ char	**ft_split(char const *s, char c)
 			word++;
 		i++;	
 	}
-	arr = malloc(sizeof(char *) * (word + 1)); // arr["", "", ""]
+	arr = malloc(sizeof(char *) * (word + 1));
 	start = 0;
 	len = 0;
 	i = 0;

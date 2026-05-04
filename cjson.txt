@@ -81,5 +81,13 @@
 			"malloc(sizeof(${1}));"
 		],
 		"description": "malloc with parentheses"
+	},
+
+	"write statement": {
+		"prefix": "write",
+		"body": [
+			"write(${1}, &${2}, ${3});"
+		],
+		"description": "write with quotes"
 	}
 }

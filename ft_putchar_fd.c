@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 18:16:01 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 17:29:03 by asaunina         ###   ########.fr       */
+/*   Created: 2026/05/04 17:55:18 by asaunina          #+#    #+#             */
+/*   Updated: 2026/05/04 18:12:29 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
+	write(fd, &c, 1);
 }
 /*
-#include "libft.h"
-int main(void)
+//#include "libft.h"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// #include <unistd.h>
+int	main(void)
 {
-	char    str1[] = "Perfect";
-	char    str2[] = "Perf   ect";
-	printf("FS: %s\n", str1);
-	printf("SS: %s\n", str2);
-
-	printf("Length of FS: %d\n", ft_strlen(str1));
-	printf("Length of SS: %d\n", ft_strlen(str2));
+	char	c = 'A';
+	int fd = 1;
+	ft_putchar_fd(c, fd);
 	return (0);
 }
 */

@@ -1,40 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 17:36:53 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 17:29:15 by asaunina         ###   ########.fr       */
+/*   Created: 2026/05/04 17:34:30 by asaunina          #+#    #+#             */
+/*   Updated: 2026/05/04 17:54:11 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*d;
-	size_t	len;
-	int		i;
+	unsigned int	i;
 
-	len = ft_strlen(s) + 1;
-	d = malloc(sizeof(char) * len);
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
-		d[i] = s[i];
+		f(i, &s[i]);
 		i++;
 	}
-	d[i] = '\0';
-	return (d);
 }
 /*
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void	test_toupper(unsigned int i, char *c)
+{
+	(void) i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
+}
+
 int	main(void)
 {
-	char	s[] = "Bardosha";
-	printf("Orgg str: %s\n", s);
-	printf("Duplicated str: %s\n", ft_strdup(s));
+	char s[] = "Bardosha";
+	ft_striteri(s, test_toupper);
+
+	printf("Org str: %s\n", s);
+	printf("After fct-s: %s\n", s);
 	return (0);
 }
 */

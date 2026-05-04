@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 18:16:01 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 17:29:03 by asaunina         ###   ########.fr       */
+/*   Created: 2026/05/04 18:44:37 by asaunina          #+#    #+#             */
+/*   Updated: 2026/05/04 19:03:18 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+		ft_putnbr_fd(n, fd); 
+	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
+	else
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
 }
 /*
-#include "libft.h"
-int main(void)
+int	main(void)
 {
-	char    str1[] = "Perfect";
-	char    str2[] = "Perf   ect";
-	printf("FS: %s\n", str1);
-	printf("SS: %s\n", str2);
-
-	printf("Length of FS: %d\n", ft_strlen(str1));
-	printf("Length of SS: %d\n", ft_strlen(str2));
+	int n = -2147483648;
+	int fd = 1;
+	ft_putnbr_fd(n, fd);
 	return (0);
 }
 */

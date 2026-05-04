@@ -1,51 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/04 15:24:14 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 15:24:22 by asaunina         ###   ########.fr       */
+/*   Created: 2026/05/04 16:28:16 by asaunina          #+#    #+#             */
+/*   Updated: 2026/05/04 17:33:49 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*ss;
-	int		i;
-	int		j;
-	size_t	len;
+	char			*ns;
+	size_t			len;
+	unsigned int	i;
 
-	if (s1 == NULL || s2 == NULL)
+	if (!s || !f)
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	ss = malloc(sizeof(char) * (len + 1));
-	if (!ss)
+	len = ft_strlen(s);
+	ns = malloc(sizeof(char) * (len + 1));
+	if (!ns)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[j] != '\0')
-		ss[i++] = s1[j++];
-	j = 0;
-	while (s2[j] != '\0')
-		ss[i++] = s2[j++];
-	ss[i] = '\0';
-	return (ss);
+	while (s[i] != '\0')
+	{
+		ns[i] = f(i, s[i]);
+		i++;
+	}
+	ns[i] = '\0';
+	return (ns);
 }
 /*
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
+char	test_toupper(unsigned int i, char c)
+{
+	(void) i;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
 int	main(void)
 {
-	char	s1[] = "Bard";
-	char	s2[] = "osha7";
+	char s[] = "Bardosha";
 
-	printf("Org str: %s and %s\n", s1, s2);
-	printf("Str together: %s\n", ft_strjoin(s1, s2));
+	printf("Org str: %s\n", s);
+	printf("After fct-s: %s\n", ft_strmapi(s, test_toupper));
+	// free (res) = ft_strampi...
 	return (0);
 }
 */
