@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:21:01 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/29 19:34:31 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 18:38:41 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 /*
 int	main(void)
-{
+{	
 	char	src[] = "Perfect";
 	char	dest[10];
 	printf("Org str: %s\n", src);
@@ -36,5 +36,11 @@ int	main(void)
 	ft_memcpy(dest, src, 3);
 	printf("After fct: %s\n", dest); //Per
 	return (0);
+	
+	// char src[] = "abcdef";
+
+	// ft_memcpy(src + 2, src, 4); // ababcd
+	// printf("After fct: %s\n", src); 
+	// return (0);
 }
 */

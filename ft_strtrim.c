@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:25:27 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 18:56:05 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:29:58 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (set == NULL)
 		return (NULL);
-
 	end = ft_strlen(s1);
 	start = 0;
 	while (s1[start] != '\0' && ft_strchr(set, s1[start]))

@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:53:50 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 15:25:45 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:56:02 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	strl = ft_strlen(s);
 	if (start >= strl)
-	{
-		sub = malloc(sizeof(char));
-		if (!sub)
-			return (NULL);
-		sub[0] = '\0';
-		return (sub);
-	}
+		return (ft_strdup(""));
 	if (len > strl - start)
 		len = strl - start;
 	sub = malloc(sizeof(char) * (len + 1));
@@ -50,6 +44,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 int	main(void)
 {
 	char			s[] = "Bardosha is Lucky";
+	//char			s[] = " ";
+
 	unsigned int	start = 12;
 	size_t			len = 9;
 

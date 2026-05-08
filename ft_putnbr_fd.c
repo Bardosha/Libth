@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 18:44:37 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 19:03:18 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:27:41 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putchar_fd('-', fd);
 		n = -n;
-		ft_putnbr_fd(n, fd); 
+		ft_putnbr_fd(n, fd);
 	}
 	else if (n >= 10)
 	{

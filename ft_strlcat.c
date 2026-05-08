@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 18:14:58 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/30 19:38:44 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 19:37:54 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,25 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	len;
+	size_t	s_len;
+	size_t	d_len;
 
+	s_len = 0;
+	while (src[s_len])
+		s_len++;
+	d_len = 0;
+	while (d_len < size && dst[d_len] != '\0')
+		d_len++;
+	if (d_len == size)
+		return (size + s_len);
 	i = 0;
-	len = 0;
-	while (dst[len] != '\0')
-		len++;
-	while (src[i] != '\0' && (len + i) < size - 1)
+	while (src[i] != '\0' && (d_len + i) < (size - 1))
 	{
-		dst[len + i] = src[i];
+		dst[d_len + i] = src[i];
 		i++;
 	}
-	dst[len + i] = '\0';
-	return (len + i);
+	dst[d_len + i] = '\0';
+	return (d_len + s_len);
 }
 /*
 int main(void)
@@ -44,4 +50,11 @@ int main(void)
 	printf("desti: %s\n", desti);
 	return (0);
 }
+// while (src[s_len]) — это то же самое,
+// что while (src[s_len] != '\0')
+// Представь ситуацию: тебе дали строку dst, 
+// которая не закрыта нуль-терминатором (битая строка), 
+// и сказали, что ее размер — size.Если ты будешь искать '\0'
+// обычным strlen, ты можешь уйти далеко за пределы массива
+// и программа упадет (Segmentation Fault).
 */

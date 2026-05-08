@@ -6,46 +6,53 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:24:00 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/04 18:56:30 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/08 15:25:32 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	cwords(char const *s, char c)
+{
+	size_t	i;
+	size_t	words;
+
+	i = 0;
+	words = 0;
+	while (s[i])
+	{
+		if ((i == 0 && s[i] != c) || (i > 0 && s[i - 1] == c && s[i] != c))
+			words++;
+		i++;
+	}
+	return (words);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	size_t	word;
+	size_t	start;
 	char	**arr;
-	int		start;
-	size_t	len;
 
-	i = 0;
-	word = 0;
-	while (s[i] != '\0')
-	{
-		if ((i == 0 && s[i] != c) || (s[i - 1] == c && s[i] != c))
-			word++;
-		i++;	
-	}
-	arr = malloc(sizeof(char *) * (word + 1));
-	start = 0;
-	len = 0;
+	if (!s)
+		return (NULL);
+	arr = malloc(sizeof(char *) * (cwords(s, c) + 1));
+	if (!arr)
+		return (NULL);
 	i = 0;
 	j = 0;
-	while (j < word)
+	while (j < cwords(s, c))
 	{
 		while (s[i] == c)
 			i++;
 		start = i;
 		while (s[i] != '\0' && s[i] != c)
 			i++;
-		len = i - start;
-		arr[j] = ft_substr(s, start, len);
+		arr[j] = ft_substr(s, start, i - start);
 		j++;
 	}
-	arr[word] = NULL;
+	arr[j] = NULL;
 	return (arr);
 }
 /*

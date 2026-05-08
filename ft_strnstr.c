@@ -6,7 +6,7 @@
 /*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 18:19:10 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/30 19:37:31 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/07 19:49:25 by asaunina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = 0;
 	if (little[i] == '\0')
 		return ((char *)big);
-	while (i < len && big[i] != '\0')
+	while (big[i] != '\0' && i < len)
 	{
-		if (big[i] == little[j])
-		{
-			while (little[j] != '\0' && big[i + j] == little[j])
-				j++;
-			if (little[j] == '\0')
-				return ((char *)&big[i]);
-		}
+		j = 0;
+		while (little[j] != '\0' && big[i + j] == little[j] && (i + j) < len)
+			j++;
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (0);
