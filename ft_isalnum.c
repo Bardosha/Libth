@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 14:38:45 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/30 18:30:59 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/18 01:09:14 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ int	ft_isalnum(int c)
 	return (0);
 }
 /*
+// int	ft_isalnum(int c)
+// {
+// 	if (ft_isalpha(c) || ft_isdigit(c))
+// 		return (c);
+// 	return (0);
+// }
+
 int main (void)
 {
 	char    c1 = 'A';

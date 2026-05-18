@@ -9,7 +9,7 @@
 The library is organized into three parts:
 - **Part 1** — re-implementations of standard libc functions (`ft_strlen`, `ft_memcpy`, `ft_atoi`, etc.)
 - **Part 2** — additional utility functions not found in the standard library (`ft_split`, `ft_itoa`, `ft_strtrim`, etc.)
-- **Part 3 ** — linked list manipulation functions using the `t_list` structure
+- **Part 3** — linked list manipulation functions using the `t_list` structure
 
 ## Instructions
 
@@ -93,8 +93,7 @@ cc -Wall -Wextra -Werror your_file.c -L. -lft -o your_program
 | `ft_substr` | Extract a substring from a string |
 
 ### Part 3 — Linked list functions
-
-The bonus part uses the following structure:
+This part uses the following structure:
 
 ```c
 typedef struct s_list

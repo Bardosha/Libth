@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:14:11 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/07 16:25:38 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/18 01:20:27 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp;
 
+	if (!lst)
+		return ;
 	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;

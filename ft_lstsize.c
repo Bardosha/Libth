@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:14:58 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/07 16:27:24 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/18 01:25:22 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		hmn;
+	int	hmn;
 
 	hmn = 0;
 	while (lst != NULL)

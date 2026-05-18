@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:24:00 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/08 15:25:32 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/16 22:49:28 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,22 @@ static size_t	cwords(char const *s, char c)
 	return (words);
 }
 
-char	**ft_split(char const *s, char c)
+static void	free_arr(char **arr, size_t j)
+{
+	while (j > 0)
+		free(arr[--j]);
+	free(arr);
+}
+
+static int	fill_arr(char **arr, char const *s, char c, size_t words)
 {
 	size_t	i;
 	size_t	j;
 	size_t	start;
-	char	**arr;
 
-	if (!s)
-		return (NULL);
-	arr = malloc(sizeof(char *) * (cwords(s, c) + 1));
-	if (!arr)
-		return (NULL);
 	i = 0;
 	j = 0;
-	while (j < cwords(s, c))
+	while (j < words)
 	{
 		while (s[i] == c)
 			i++;
@@ -50,9 +51,30 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != '\0' && s[i] != c)
 			i++;
 		arr[j] = ft_substr(s, start, i - start);
+		if (!arr[j])
+		{
+			free_arr(arr, j);
+			return (0);
+		}
 		j++;
 	}
 	arr[j] = NULL;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	words;
+	char	**arr;
+
+	if (!s)
+		return (NULL);
+	words = cwords(s, c);
+	arr = malloc(sizeof(char *) * (words + 1));
+	if (!arr)
+		return (NULL);
+	if (!fill_arr(arr, s, c, words))
+		return (NULL);
 	return (arr);
 }
 /*

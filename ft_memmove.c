@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 18:18:44 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/07 20:03:54 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/18 01:48:40 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*stmp;
-	unsigned char	*dtmp;
+	const unsigned char	*stmp;
+	unsigned char		*dtmp;
 
-	if (!dest && !src)
-		return (NULL);
-	stmp = (unsigned char *) src;
-	dtmp = (unsigned char *) dest;
+	stmp = (const unsigned char *)src;
+	dtmp = (unsigned char *)dest;
 	if (dtmp < stmp)
 	{
 		while (n--)
@@ -37,6 +35,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 /*
+УБРАЛИ ПРОВЕРКУ if (!dest && !src)
+Проверить с тестером!
 int	main(void)
 {
 	char src[] = "abcdef";

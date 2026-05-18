@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 18:17:59 by asaunina          #+#    #+#             */
-/*   Updated: 2026/04/30 19:41:02 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/16 19:49:26 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *nptr)
 {
 	int		i;
-	int		res;
-	char	sign;
+	int		sign;
+	long	res;
 
 	i = 0;
 	res = 0;
@@ -34,30 +34,25 @@ int	ft_atoi(const char *nptr)
 		res = res * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (sign * res);
+	return ((int)(res * sign));
 }
 /*
 int	main(void)
 {
-	char	n1[] = "777";
-	char	n2[] = "      \t  777";
-	char	n3[] = "7a7";
-	char	n4[] = "  a77";
-	char	n5[] = " -7 77";
-	char	n6[] = "+777";
-	char	n7[] = " +-+-+777";
-	// char	n8[] = "2147483647";
-	// char	n9[] = "-2147483648";
-	
-	printf("777 = %d\n", ft_atoi(n1));
-	printf("      \\t  777 = %d\n", ft_atoi(n2));
-	printf("7a7 = %d\n", ft_atoi(n3));
-	printf("  a77 = %d\n", ft_atoi(n4));
-	printf(" -7 77 = %d\n", ft_atoi(n5));
-	printf("+777 = %d\n", ft_atoi(n6));
-	printf(" +-+-+777 = %d\n", ft_atoi(n7));
-	// printf("2147483647 = %d\n", ft_atoi(n8));
-	// printf("-2147483648 = %d\n", ft_atoi(n9));
+	printf("%d\n", ft_atoi("7"));
+	printf("%d\n", ft_atoi("77abc"));
+	printf("%d\n", ft_atoi("-77"));
+	printf("%d\n", ft_atoi("      \t77"));
+	printf("%d\n", ft_atoi("abc"));
+	printf("%d\n", ft_atoi("+77"));
+	printf("%d\n", ft_atoi("+-+-+-+       77"));
+	printf("%d\n", ft_atoi("+"));
+	printf("%d\n", ft_atoi(""));
+	printf("%d\n", ft_atoi("      "));
+	printf("%d\n", ft_atoi("NULL"));
+	printf("%d\n", ft_atoi("2147483647"));
+	printf("%d\n", ft_atoi("-2147483648"));
+	printf("%d\n", ft_atoi("2147483648"));
 	return (0);
 }
 */

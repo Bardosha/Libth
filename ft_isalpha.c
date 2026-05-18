@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 18:18:26 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/18 01:39:58 by veres            ###   ########.fr       */
+/*   Created: 2026/05/18 02:16:55 by veres             #+#    #+#             */
+/*   Updated: 2026/05/18 02:17:13 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_isalpha(int c)
 {
-	size_t				i;
-	unsigned char		cc;
-	const unsigned char	*tmp;
-
-	i = 0;
-	cc = (unsigned char)c;
-	tmp = (const unsigned char *)s;
-	while (i < n)
-	{
-		if (tmp[i] == cc)
-			return (&tmp[i]);
-		i++;
-	}
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
 	return (0);
 }
 /*
-int	main(void)
+int main(void)
 {
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
-	char *v = ft_memchr(s, 2 + 256, 3);
-	printf("%c\n", *v);
+	char    c1 = 'A';
+	char    c2 = '\0';
+	printf("First char: %c\n", c1);
+	printf("Second char: %c\n", c2);
+	printf("FS is Char? %d\n", ft_isalpha(c1));
+	printf("SS is Char? %d\n", ft_isalpha(c2));
 	return (0);
 }
 */

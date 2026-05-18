@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaunina <asaunina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: veres <veres@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:13:50 by asaunina          #+#    #+#             */
-/*   Updated: 2026/05/07 16:13:54 by asaunina         ###   ########.fr       */
+/*   Updated: 2026/05/18 01:19:02 by veres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*lsn;
 
+	if (!lst || !new)
+		return ;
 	if (*lst == NULL)
 	{
 		*lst = new;
